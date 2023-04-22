@@ -32,3 +32,11 @@ input {
 
 
 }
+
+
+
+.error{
+    font-size: 1em;
+    color: brown;
+    margin-left: 10px;
+}

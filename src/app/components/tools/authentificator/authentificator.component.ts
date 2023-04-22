@@ -3,6 +3,10 @@ import { Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import  TypeResult  from 'src/app/com/antonsibgatulin/typeResult/TypeResult';
 import  User  from 'src/app/com/antonsibgatulin/user/User';
+import { Token } from '@angular/compiler';
+import { MatDialogRef } from '@angular/material/dialog';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
+import Config from 'src/app/com/antonsibgatulin/configure/Config';
 @Component({
   selector: 'app-authentificator',
   templateUrl: './authentificator.component.html',
@@ -11,12 +15,35 @@ import  User  from 'src/app/com/antonsibgatulin/user/User';
 export class AuthentificatorComponent implements OnInit{
   private typeResult = new TypeResult();
 
+  private error!:string
+
   private state = AuthenticatorCompState.LOGIN;
-  private url = "http://localhost:8080/api/v1/";
-  constructor(private http:HttpClient){
+
+  private url:string = new Config().url;
+  constructor(private http:HttpClient,private matDilogRef:MatDialogRef<AuthentificatorComponent>){
 
   }
   
+  onAuthClick(loginInput:HTMLInputElement,pass:HTMLInputElement){
+
+    let login = loginInput.value;
+    let password = pass.value;
+
+    if( this.isNotEmpty(login) && this.isNotEmpty(password)){
+      this.http.post<any>(this.url+"auth",{
+          login:login,
+          password:password
+      }).subscribe(data=>{
+        if(!this.authMe(data)){
+          this.error = "Не правильный логин или пароль!"
+        }
+
+
+
+      })
+    }
+
+  }
 
  
 
@@ -69,28 +96,49 @@ export class AuthentificatorComponent implements OnInit{
           
         }
         ).subscribe(data=>{
-         this.typeResult = new TypeResult();
+          var reg = this.authMe(data);
 
-        Object.assign(this.typeResult,data);
+            if(!reg){
+              if(data.code == 800){
+                this.error = "Логин уже используется!";
+              }
+              else if(data.code == 801){
+                this.error = "Номер уже используется!";
+              }
+              else if(data.code == 802){
+                this.error = "Почта уже используется!";
+              }else{
+                this.error = data.message;
+              }
 
-        if(this.typeResult.isOK()){
-
-          var user: User = new User();
-          Object.assign(user,this.typeResult.user);
-          console.log(user.isHaveToken())
-
-        }
+            } 
          
         })
-
-        
-
-
 
       }
 
 
 
+
+  }
+
+
+  authMe(data:any){
+    this.typeResult = new TypeResult();
+
+    Object.assign(this.typeResult,data);
+
+    if(this.typeResult.isOK()){
+
+      var user: User = new User();
+      Object.assign(user,this.typeResult.user);
+      localStorage.setItem("token",user.token);
+      localStorage.setItem("me",JSON.stringify(user))
+        this.matDilogRef.close();
+        return user;
+    }
+
+    return false;
 
   }
 
@@ -111,6 +159,15 @@ export class AuthentificatorComponent implements OnInit{
       default:
         return "";
     }
+  }
+
+
+  isHaveError(){
+    return this.error!=null && this.error.length>0
+  }
+
+  getError(){
+    return this.error;
   }
 
   ngOnInit(): void {

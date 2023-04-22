@@ -23,13 +23,13 @@
             </div>
         </div>
         <div id="nav-bar-right">
-            <div class= "button">
-                <button mat-raised-button color="primary">
+            <div *ngIf="isAuth()==false" class= "button">
+                <button mat-raised-button color="primary" (click)="onGetStartedClick()">
                     Авторизация
                 </button>
               </div>
               <div class= "button">
-                <button mat-raised-button color="warn">
+                <button mat-raised-button color="warn"  (click)="onGetStartedClick()">
                     Регистрация 
                 </button>
               </div>

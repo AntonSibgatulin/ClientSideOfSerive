@@ -8,9 +8,10 @@
         </mat-card-header>
 
         <div *ngIf="isLoginStage()">
-            <input placeholder="Почта">
-            <input placeholder="Пароль" type="password">
-            <button mat-flat-button color="warn">Вход</button>
+            <input #login placeholder="Логин">
+            <input #pass placeholder="Пароль" type="password">
+            <button (click)="onAuthClick(login,pass)" mat-flat-button color="warn">Вход</button>
+            <div class="error" *ngIf="isHaveError()">{{getError()}}</div>
         </div>
         <div *ngIf="isRegisterStage()"> 
             <input #registerEmail placeholder="Почта">
@@ -27,6 +28,7 @@
                 registerName,
                 registerSurname
             )" color="warn">Регистрация</button>
+            <div  class="error" *ngIf="isHaveError()"> {{getError()}}</div>
         </div>
 
         <mat-card-actions align="end">
