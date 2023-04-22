@@ -1,0 +1,41 @@
+<div id = "authenticator">
+
+    <div id="authenticator-content">
+
+        <mat-card-header>
+            <mat-card-title>{{getStateText()}}</mat-card-title>
+
+        </mat-card-header>
+
+        <div *ngIf="isLoginStage()">
+            <input placeholder="Почта">
+            <input placeholder="Пароль" type="password">
+            <button mat-flat-button color="warn">Вход</button>
+        </div>
+        <div *ngIf="isRegisterStage()"> 
+            <input #registerEmail placeholder="Почта">
+            <input #registerPhone placeholder="Телефон">
+            <input #registerLogin placeholder="Логин">
+            <input #registerPassword placeholder="Пароль" type="password">
+            <input #registerName placeholder="Имя">
+            <input #registerSurname placeholder="Фамилия">
+            <button mat-flat-button (click)="onRegisterClick(
+                registerEmail,
+                registerPhone,
+                registerLogin,
+                registerPassword,
+                registerName,
+                registerSurname
+            )" color="warn">Регистрация</button>
+        </div>
+
+        <mat-card-actions align="end">
+            <button mat-flat-button > Забыли пароль? </button>
+            <button *ngIf="isLoginStage()" mat-flat-button (click)="onCreateAccountClick()"> Создать аккаунт </button>
+            <button *ngIf="isRegisterStage()" mat-flat-button (click)="onLoginClick()"> Авторизация </button>
+        </mat-card-actions>
+
+    </div>
+
+
+</div>
