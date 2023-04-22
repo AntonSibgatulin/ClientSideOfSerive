@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
