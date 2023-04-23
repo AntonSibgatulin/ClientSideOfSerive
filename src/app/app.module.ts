@@ -18,6 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
 
 
 import { AuthentificatorComponent } from './components/tools/authentificator/authentificator.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -25,7 +26,8 @@ import { AuthentificatorComponent } from './components/tools/authentificator/aut
   declarations: [
     AppComponent,
     HomeComponent,
-    AuthentificatorComponent
+    AuthentificatorComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

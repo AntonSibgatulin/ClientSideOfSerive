@@ -6,16 +6,23 @@ import { AuthentificatorComponent } from './components/tools/authentificator/aut
 import { HttpClient } from '@angular/common/http';
 import TypeResult from './com/antonsibgatulin/typeResult/TypeResult';
 import Config from './com/antonsibgatulin/configure/Config';
+import User from './com/antonsibgatulin/user/User';
+import AuthLogic from './com/antonsibgatulin/tools/AuthLogic';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'client';
-  private url:string = new Config().url;
-  constructor(private matDilog:MatDialog,private http:HttpClient){
+ 
 
+  title = 'client';
+  private config = new Config();
+  private url:string = this.config.url;
+  private authLogic!:AuthLogic;
+  constructor(private matDilog:MatDialog,private http:HttpClient,private router:Router){
+    this.authLogic = new AuthLogic(http,router)
   }
 
   onGetStartedClick(){
@@ -23,25 +30,7 @@ export class AppComponent {
   }
 
   isAuth(){
-    if(localStorage.getItem("token") == null )return false;
-    var token = localStorage.getItem("token")
-
-    var typeResult = new TypeResult();
-
-    this.http.post<any>(this.url+"get/userByToken",{token:token}).subscribe(data => {
-
-      Object.assign(typeResult,data)
-      if(typeResult.message == "ok"){
-        
-        return true;
-      }
-
-    });
-
-  
-
-    
-
-    return false;
+   
+    return this.authLogic.isAuth();
   }
 }

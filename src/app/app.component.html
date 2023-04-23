@@ -22,8 +22,8 @@
                 </div>
             </div>
         </div>
-        <div id="nav-bar-right">
-            <div *ngIf="isAuth()==false" class= "button">
+        <div *ngIf="isAuth()==false" id="nav-bar-right">
+            <div class= "button">
                 <button mat-raised-button color="primary" (click)="onGetStartedClick()">
                     Авторизация
                 </button>
@@ -33,6 +33,32 @@
                     Регистрация 
                 </button>
               </div>
+        </div>
+
+        <div *ngIf="isAuth()" id="nav-bar-right"> 
+            <div class="button">
+                 <button mat-button>
+                    Репетитор
+                 </button>   
+            </div>
+            <div class="button">
+                <button mat-button>
+                    Услуги
+                 </button>
+            </div>
+
+            <div class="button">
+                <button mat-button>
+                    Биржа
+                 </button>
+            </div>
+
+            <div class="button">
+                <button mat-button>
+                    Расписание
+                 </button>
+            </div>
+
         </div>
     </div>
 </div>

@@ -18,8 +18,8 @@ export class AuthentificatorComponent implements OnInit{
   private error!:string
 
   private state = AuthenticatorCompState.LOGIN;
-
-  private url:string = new Config().url;
+  private config = new Config();
+  private url:string = this.config.url;
   constructor(private http:HttpClient,private matDilogRef:MatDialogRef<AuthentificatorComponent>){
 
   }

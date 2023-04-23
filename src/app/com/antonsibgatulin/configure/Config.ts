@@ -1,3 +1,3 @@
 export default class Config{
-    url = ""
+    url = "http://localhost:8080/api/v1/"
 }
