@@ -5,6 +5,7 @@ import { AuthentificatorComponent } from '../tools/authentificator/authentificat
 import AuthLogic from 'src/app/com/antonsibgatulin/tools/AuthLogic';
 import { HttpClient } from '@angular/common/http';
 import { Route, Router } from '@angular/router';
+import User from 'src/app/com/antonsibgatulin/user/User';
 
 
 @Component({
@@ -29,7 +30,20 @@ export class HomeComponent implements OnInit{
     if(this.authLogic.isAuth() == false){
     this.loginDilog.open(AuthentificatorComponent)
     }else{
-      this.router.navigate(["profile",4])
-    }
+
+      var object = this;
+      var user = this.authLogic.getAuthFromCookie();
+      if(user == null){
+        this.loginDilog.open(AuthentificatorComponent)
+        return;
+      }
+      var json = JSON.parse(user)
+      var userModel = new User();
+      Object.assign(userModel,json);
+
+      object.router.navigate(["profile",userModel.userId])
+   
+      
+     }
   }
 }

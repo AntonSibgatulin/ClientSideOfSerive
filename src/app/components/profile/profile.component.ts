@@ -108,7 +108,7 @@ getTextPhoneTrue(){
 
   }
   isMine(){
-    return this.authLogic.isMine(this.user.id);
+    return this.authLogic.isMine(this.user.userId);
   }
   
 

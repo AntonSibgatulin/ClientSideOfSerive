@@ -6,6 +6,7 @@
     height: 5em;
     z-index: 10;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: #068579;/*green;*/
 }
 
 #nav-bar-content{

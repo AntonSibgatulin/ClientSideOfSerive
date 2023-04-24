@@ -5,7 +5,7 @@ import Account from "../account/Account";
 
 
 export default class User{
-    id!:number
+    userId!:number
     login!:string
     email!:string
     number!:string

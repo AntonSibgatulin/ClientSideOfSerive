@@ -39,9 +39,9 @@ export default class AuthLogic{
             }
             var user = new User();
             Object.assign(user,localStorage.getItem("me"));
-            return user.id == id;
+            return user.userId == id;
         }else{
-            return this.user.id == id;
+            return this.user.userId == id;
         }
     }
 
@@ -90,4 +90,18 @@ export default class AuthLogic{
 
     }
 
+
+    getAuthFromCookie(){
+        var user = new User();
+        if(localStorage.getItem("me") == null){
+            return null;
+        }
+        var us=  localStorage.getItem("me");
+
+        //Object.assign(user,us)
+        return us;
+
+    }
+
+    
 }
