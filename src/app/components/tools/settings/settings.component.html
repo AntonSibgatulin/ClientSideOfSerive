@@ -1,1 +1,183 @@
-<p>settings works!</p>
+
+<mat-card style="margin-top:4.5em">
+
+    <mat-card-content>
+        <div class="setting-container">
+            <div class="container">
+
+                <div>
+                    <div class="text-data">
+                        Логин
+                    </div>
+                    <div>
+                        <input type="text" value="{{getLogin()}}" >
+                    </div>
+                </div>
+
+                <div class="element">
+                    <div class="text-data">
+                        Имя и фамилия
+                    </div>
+                    <div class="name-data">
+                        <input style="width:calc(50% - 5px)" type="text" value="{{getName()}}" >
+                        <input style="width:calc(50% - 5px)" type="text" value="{{getSurName()}}" >
+                    </div>
+                </div>
+
+
+                <div class="element">
+                    <div class="text-data">
+                        Номер телефона
+                    </div>
+                    <div>
+                        <input style="width:40%" type="number" value="{{getNumber()}}">
+                    </div>
+                </div>
+
+                <div class="element">
+                    <div class="text-data">
+                        Email
+                    </div>
+                    <div>
+                        <input  type="email" value="{{getMail()}}">
+                    </div>
+                </div>
+
+
+                <div class="element">
+                    <div class="text-data">
+                        Начало и конец
+                    </div>
+                    <div class="name-data">
+                    
+                        <select id="start" style="width:calc(50% - 5px)">
+                            <option value="0">00:00</option>
+                            <option value="1">01:00</option>
+                            <option value="2">02:00</option>
+                            <option value="3">03:00</option>
+                            <option value="4">04:00</option>
+                            <option value="5">05:00</option>
+                            <option value="6">06:00</option>
+                            <option value="7">07:00</option>
+                            <option value="8">08:00</option>
+                            <option value="9">09:00</option>
+                            <option value="10">10:00</option>
+                            <option value="11">11:00</option>
+                            <option value="12">12:00</option>
+                            <option value="13">13:00</option>
+                            <option value="14">14:00</option>
+                            <option value="15">15:00</option>
+                            <option value="16">16:00</option>
+                            <option value="17">17:00</option>
+                            <option value="18">18:00</option>
+                            <option value="19">19:00</option>
+                            <option value="20">20:00</option>
+                            <option value="21">21:00</option>
+                            <option value="22">22:00</option>
+                            <option value="23">23:00</option>
+
+                          </select>
+
+
+
+                          <select id="start" style="width:calc(50% - 5px)">
+                            <option value="0">00:00</option>
+                            <option value="1">01:00</option>
+                            <option value="2">02:00</option>
+                            <option value="3">03:00</option>
+                            <option value="4">04:00</option>
+                            <option value="5">05:00</option>
+                            <option value="6">06:00</option>
+                            <option value="7">07:00</option>
+                            <option value="8">08:00</option>
+                            <option value="9">09:00</option>
+                            <option value="10">10:00</option>
+                            <option value="11">11:00</option>
+                            <option value="12">12:00</option>
+                            <option value="13">13:00</option>
+                            <option value="14">14:00</option>
+                            <option value="15">15:00</option>
+                            <option value="16">16:00</option>
+                            <option value="17">17:00</option>
+                            <option value="18">18:00</option>
+                            <option value="19">19:00</option>
+                            <option value="20">20:00</option>
+                            <option value="21">21:00</option>
+                            <option value="22">22:00</option>
+                            <option value="23">23:00</option>
+
+                          </select>
+                    
+                    </div>
+                </div>
+
+
+                <div class="element">
+                <div class="name-data">
+                    <button  mat-button style="background-color:#04b70a;" >
+                        <div class="button">
+                            <div class="text">Сохранить</div>
+                        </div>
+                    </button>
+
+                    <div>
+                        <button mat-button color="red" style="color:rgba(161, 30, 30, 0.863);font-size:1.2em;">
+                            Удалить аккаунт
+                        </button>
+                    </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="setting-container">
+            <div class="container">
+
+                <div>
+                    <div class="text-data">
+                        Вы по специальности
+                    </div>
+                    <div>
+                        <input style="width:40%" maxlength="60" type="text" value="{{getMinDescription()}}">
+                    </div>
+                </div>
+
+
+                <div class="element">
+                    <div class="text-data">
+                        Информация о вас
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <textarea style="min-height: 200px;width: 100%;" type="number" >{{getDescription()}}</textarea>
+                    </div>
+                </div>
+
+                <div class="element">
+                
+                    <button  mat-button style="background-color:#04b70a;" >
+                        <div class="button">
+                            <div class="text">Сохранить</div>
+                        </div>
+                    </button>
+
+                   
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="setting-container">
+            <div class="container">
+
+            </div>
+        </div>
+    </mat-card-content>
+
+</mat-card>

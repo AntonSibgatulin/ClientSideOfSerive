@@ -77,7 +77,7 @@ export default class AuthLogic{
       }else{
             localStorage.removeItem("token");
             localStorage.removeItem("me");
-            this.router.navigate(['home'])
+            this.router.navigate([''])
       }
 
     });
