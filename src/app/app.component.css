@@ -125,8 +125,14 @@
     height: 100%;
 }
 
+@media screen and (max-width: 600px) {
+    #nav-bar-right{
+        display: none;
+    }
+}
 
-@media screen and (max-width: 800px) {
+
+@media screen and (max-width: 1000px) {
     #nav-bar-left{
         display: none;
     }

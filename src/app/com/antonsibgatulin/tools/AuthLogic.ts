@@ -7,7 +7,9 @@ export default class AuthLogic{
 
     private http!:HttpClient;
     private router!:Router;
-    private config = new Config();
+    public config = new Config();
+
+    public user!:User ;
 
     auth = false;
     lastCheck = 0;
@@ -24,6 +26,23 @@ export default class AuthLogic{
         //if()
 
         
+    }
+    getToken(){
+        this.isAuth();
+        return localStorage.getItem("token");
+    }
+
+    isMine(id:number){
+        if(this.user==null){
+            if(localStorage.getItem("me")== null){
+                return false;
+            }
+            var user = new User();
+            Object.assign(user,localStorage.getItem("me"));
+            return user.id == id;
+        }else{
+            return this.user.id == id;
+        }
     }
 
     isAuth()
@@ -50,9 +69,9 @@ export default class AuthLogic{
       Object.assign(typeResult,data)
       if(typeResult.message == "ok"){
         
-        var user = new User()
-        Object.assign(user,typeResult.user);
-        localStorage.setItem("me",JSON.stringify(user));
+        this.user= new User()
+        Object.assign(this.user,typeResult.user);
+        localStorage.setItem("me",JSON.stringify(this.user));
         this.auth = true;
        
       }else{
@@ -64,6 +83,11 @@ export default class AuthLogic{
     });
 
         return true;
+    }
+    unAuth(){
+        localStorage.removeItem("token")
+
+
     }
 
 }

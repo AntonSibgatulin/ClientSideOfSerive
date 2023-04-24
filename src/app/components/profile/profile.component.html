@@ -1,4 +1,8 @@
-<mat-card style = "margin-top: 5em;">
+<div id="background-preloader">
+
+</div>
+
+<mat-card >
 
     <mat-card-content>
         <div id="profile-panel-image">
@@ -7,9 +11,80 @@
             </div>
         </div>
 
-        <div id="profile-information">
-            
-        </div>
+        <div id = "profile-panel-information">
+            <div id="profile-content-information">
+               <div *ngIf="isError()==false">
+                <div id="name">{{getName()}}</div>
+                <div id="typeUser"> {{getTextTypeUser()}} </div>
+                <hr>
+                
+                
+                <div class="information">
+                    
+                    <div class="main-text">
+                        {{getMinDescription()}}
+                    </div>
 
+                </div>
+
+                <div class="information">
+                    
+                    <div class="small-text">
+                        {{getDescription()}}
+                    </div>
+
+                </div>
+                
+                
+                
+                <div class="information">
+                    <div>
+                    <img src="assets/icon/phone.png">
+                    </div>
+                    <div class="text">
+                        {{getTextPhoneTrue()}}
+                    </div>
+
+                </div>
+
+
+                <div class="information">
+                    <div>
+                        <img class="online" *ngIf="isOnline()">
+                        <img class="offline" *ngIf="!isOnline()">
+                    </div>
+                    <div class="text">
+                        {{getTextOnline()}}
+                    </div>
+
+                </div>
+                <div class="element">
+                    <button *ngIf="isMine()" mat-button style="background-color:#04b70a;" >
+                        <div class="button">
+
+                            <img src="assets/icon/icon-settings.png">
+
+                        <div class="text">Настройка профиля</div>
+                    </div>
+                    </button>
+                </div>
+               </div>
+
+
+               <div *ngIf="isError()">
+                <div id="name">404 </div>
+                
+                <div class="information" style="display:flex; justify-content: center; width: 100%;">
+                    
+                    <div class="main-text">
+                        {{getTextError()}}
+                    </div>
+
+                </div>
+               </div>
+
+
+            </div>
+        </div>
     </mat-card-content>
 </mat-card>

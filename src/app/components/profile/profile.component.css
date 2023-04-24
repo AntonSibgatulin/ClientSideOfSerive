@@ -1,19 +1,169 @@
+#background-preloader{
+    width: 100%;
+    height: 15em;
+    background-image: url("src/assets/profile/backgrounds/default.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+
 #profile-panel-image{
     display: flex;
     width: 100%;
     justify-content: center;
+  
 }
 
 #profile-image{
-    max-width: 192px;
-    max-height: 192px;
+    margin-top: -10em;
+    width: 192px;
+    height: 192px;
+    z-index: 10;
 }
 
 #profile-image img{
     width: 100%;
     height: 100%;
 }
+#profile-panel-information{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
-#profile-information{
-    width: calc(100% - 20px);
+}
+
+#profile-content-information{
+    background-color: rgb(243, 246, 248);
+    margin-top: -5em;
+    min-width: 300px;
+    max-width: 600px;
+    min-height: 300px;
+    width: 65%;
+    border-radius: 6px;
+    border: 1px solid grey;
+    padding: 20px;
+}
+#name{
+    margin-top: 100px;
+    font-size: 1.7em;
+    font-weight: 700;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+#typeUser{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    font-size: 1.3em;
+
+}
+
+#profile-panel-information
+#profile-content-information
+.information{
+    display: flex;
+    justify-content: left;
+  
+    margin-top: 15px;
+}
+
+#profile-panel-information
+#profile-content-information
+.information img{
+    width: 16px;
+    height: 16px;
+
+}
+
+#profile-panel-information
+#profile-content-information
+.information .text{
+    margin-left: 10px;
+    font-size: 100%;
+}
+#profile-panel-information
+#profile-content-information
+.element{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  
+
+}
+
+button{
+    padding: 2em 3.2em;
+}
+#profile-panel-information
+#profile-content-information
+.element
+.button{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   width: 100%;
+   height: 100%;
+
+}
+button img{
+    width: 20px;
+    height: 20px;
+}
+
+button .text{
+    font-size: 20px;
+    margin-left: 3px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.online{
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: #04b70a;
+    border: 0px;
+    outline: none;
+    border: 1px solid grey;
+}
+.offline{
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+
+    border: 0px;
+    border: 1px solid grey;
+    outline: none;
+}
+.main-text{
+    margin-left:0px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.small-text{
+    margin-left:0px;
+    margin-top: -5px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+    #profile-content-information{
+        width: calc(100% - 10px);
+
+    }
 }

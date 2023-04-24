@@ -19,6 +19,7 @@ import {MatIconModule} from '@angular/material/icon';
 
 import { AuthentificatorComponent } from './components/tools/authentificator/authentificator.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SettingsComponent } from './components/tools/settings/settings.component';
 
 
 
@@ -27,7 +28,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     AppComponent,
     HomeComponent,
     AuthentificatorComponent,
-    ProfileComponent
+    ProfileComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

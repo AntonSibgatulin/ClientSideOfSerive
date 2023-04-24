@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit{
     if(this.authLogic.isAuth() == false){
     this.loginDilog.open(AuthentificatorComponent)
     }else{
-      this.router.navigate(["profile"])
+      this.router.navigate(["profile",4])
     }
   }
 }
