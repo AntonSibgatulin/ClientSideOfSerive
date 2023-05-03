@@ -10,7 +10,7 @@
                         Логин
                     </div>
                     <div>
-                        <input type="text" value="{{getLogin()}}" >
+                        <input #login type="text" value="{{getLogin()}}" >
                     </div>
                 </div>
 
@@ -19,8 +19,8 @@
                         Имя и фамилия
                     </div>
                     <div class="name-data">
-                        <input style="width:calc(50% - 5px)" type="text" value="{{getName()}}" >
-                        <input style="width:calc(50% - 5px)" type="text" value="{{getSurName()}}" >
+                        <input #name style="width:calc(50% - 5px)" type="text" value="{{getName()}}" >
+                        <input #surname style="width:calc(50% - 5px)" type="text" value="{{getSurName()}}" >
                     </div>
                 </div>
 
@@ -30,7 +30,7 @@
                         Номер телефона
                     </div>
                     <div>
-                        <input style="width:40%" type="number" value="{{getNumber()}}">
+                        <input #number style="width:40%" type="text" value="{{getNumber()}}">
                     </div>
                 </div>
 
@@ -39,10 +39,51 @@
                         Email
                     </div>
                     <div>
-                        <input  type="email" value="{{getMail()}}">
+                        <input #email  type="email" value="{{getMail()}}">
                     </div>
                 </div>
 
+
+                <div class="element">
+                    <div class="text-data">
+                        Дни работы
+                    </div>
+                    <div style="margin-top: 10px;">
+                   
+                    <div class="form_radio_group">
+                        <div class="form_radio_group-item">
+                            <input #d1 type="checkbox" name="mn" value="1" checked>
+                            <label for="d1">ПН</label>
+                        </div>
+                        <div class="form_radio_group-item">
+                            <input id="radio-2" type="checkbox" name="tu" value="2">
+                            <label for="radio-2">ВТ</label>
+                        </div>
+                        <div class="form_radio_group-item">
+                            <input id="radio-3" type="checkbox" name="td" value="3">
+                            <label for="radio-3">СР</label>
+                        </div>
+                        <div class="form_radio_group-item">
+                            <input id="radio-4" type="checkbox" name="fd" value="4" >
+                            <label for="radio-4">ЧТ</label>
+                        </div>
+                        <div class="form_radio_group-item">
+                            <input id="radio-5" type="checkbox" name="fr" value="5" >
+                            <label for="radio-5">ПТ</label>
+                        </div>
+                        <div class="form_radio_group-item">
+                            <input id="radio-6" type="checkbox" name="st" value="6" >
+                            <label for="radio-6">СБ</label>
+                        </div>
+                        <div class="form_radio_group-item">
+                            <input id="radio-7" type="checkbox" name="sn" value="7" >
+                            <label for="radio-7">ВС</label>
+                        </div>
+
+                    </div>
+                    </div>
+
+                </div>
 
                 <div class="element">
                     <div class="text-data">
@@ -50,7 +91,7 @@
                     </div>
                     <div class="name-data">
                     
-                        <select id="start" style="width:calc(50% - 5px)">
+                        <select #start  style="width:calc(50% - 5px)">
                             <option value="0">00:00</option>
                             <option value="1">01:00</option>
                             <option value="2">02:00</option>
@@ -80,7 +121,7 @@
 
 
 
-                          <select id="start" style="width:calc(50% - 5px)">
+                          <select #end  style="width:calc(50% - 5px)">
                             <option value="0">00:00</option>
                             <option value="1">01:00</option>
                             <option value="2">02:00</option>
@@ -112,38 +153,15 @@
                 </div>
 
 
-                <div class="element">
-                <div class="name-data">
-                    <button  mat-button style="background-color:#04b70a;" >
-                        <div class="button">
-                            <div class="text">Сохранить</div>
-                        </div>
-                    </button>
+               
 
-                    <div>
-                        <button mat-button color="red" style="color:rgba(161, 30, 30, 0.863);font-size:1.2em;">
-                            Удалить аккаунт
-                        </button>
-                    </div>
-                    </div>
-                </div>
-
-
-
-
-            </div>
-        </div>
-
-
-        <div class="setting-container">
-            <div class="container">
 
                 <div>
                     <div class="text-data">
                         Вы по специальности
                     </div>
                     <div>
-                        <input style="width:40%" maxlength="60" type="text" value="{{getMinDescription()}}">
+                        <input #mindesc [maxLength]="60"  maxlength="60" type="text" value="{{getMinDescription()}}">
                     </div>
                 </div>
 
@@ -153,21 +171,30 @@
                         Информация о вас
                     </div>
                     <div style="margin-top: 10px;">
-                        <textarea style="min-height: 200px;width: 100%;" type="number" >{{getDescription()}}</textarea>
+                        <textarea #description [maxLength]="4096" style="min-height: 200px;width: 100%;" type="number" >{{getDescription()}}</textarea>
                     </div>
                 </div>
 
+
+
+
+
                 <div class="element">
-                
-                    <button  mat-button style="background-color:#04b70a;" >
-                        <div class="button">
-                            <div class="text">Сохранить</div>
+                    <div class="name-data">
+                        <button  mat-button style="background-color:#04b70a;" >
+                            <div class="button">
+                                <div class="text">Сохранить</div>
+                            </div>
+                        </button>
+    
+                        <div>
+                            <button mat-button color="red" style="color:rgba(161, 30, 30, 0.863);font-size:1.2em;">
+                                Удалить аккаунт
+                            </button>
                         </div>
-                    </button>
-
-                   
-
-                </div>
+                        </div>
+                    </div>
+    
 
 
             </div>

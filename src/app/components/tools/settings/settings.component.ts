@@ -53,4 +53,11 @@ export class SettingsComponent implements OnInit{
    
   }
 
+
+  update(name:HTMLInputElement,surname:HTMLInputElement,
+    number:HTMLInputElement,email:HTMLInputElement,start:HTMLSelectElement,
+    end:HTMLSelectElement){
+
+  }
+
 }
