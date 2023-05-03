@@ -50,9 +50,9 @@
                     </div>
                     <div style="margin-top: 10px;">
                    
-                    <div class="form_radio_group">
+                    <div class="form_radio_group" #days>
                         <div class="form_radio_group-item">
-                            <input #d1 type="checkbox" name="mn" value="1" checked>
+                            <input id="d1" type="checkbox" name="mn" value="1" >
                             <label for="d1">ПН</label>
                         </div>
                         <div class="form_radio_group-item">
@@ -175,20 +175,40 @@
                     </div>
                 </div>
 
+                <div class="element">
+                    <div class="text-data">
+                        Тип оплаты
+                    </div>
+                    <div class="form_radio_group" #typePeayments>
+                        <div class="form_radio_group-item">
+                            <input id="online" type="radio" name="payment" value="0" checked >
+                            <label for="online">Онлайн</label>
+                        </div>
+                        <div class="form_radio_group-item">
+                            <input id="app" type="radio" name="payment" value="1">
+                            <label for="app">Приложение</label>
+                        </div>
+                        <div class="form_radio_group-item">
+                            <input id="cash" type="radio" name="payment" value="2">
+                            <label for="cash">Наличными</label>
+                        </div>
+                    </div>
+                </div>
+
 
 
 
 
                 <div class="element">
                     <div class="name-data">
-                        <button  mat-button style="background-color:#04b70a;" >
+                        <button  (click)="update(name,surname,number,email,start,end,mindesc,description,days,typePeayments)" mat-button style="background-color:#04b70a;" >
                             <div class="button">
-                                <div class="text">Сохранить</div>
+                                <div class="text" >Сохранить</div>
                             </div>
                         </button>
     
                         <div>
-                            <button mat-button color="red" style="color:rgba(161, 30, 30, 0.863);font-size:1.2em;">
+                            <button  mat-button color="red" style="color:rgba(161, 30, 30, 0.863);font-size:1.2em;">
                                 Удалить аккаунт
                             </button>
                         </div>
